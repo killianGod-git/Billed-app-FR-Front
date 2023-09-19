@@ -28,6 +28,8 @@ export default class NewBill {
   
     if (!extensionsAllow.includes(fileExtension)) {
       console.error('Seuls les fichiers jpg, jpeg ou png sont autorisés.');
+      const fileErrorContainer = this.document.querySelector(`input[data-testid="file"]`)
+      fileErrorContainer.insertAdjacentHTML("afterEnd", `<div class="errorFile"> Seuls les fichiers jpg, jpeg ou png sont autorisés. </div>`);
       return;
     }
     formData.append('file', file)
